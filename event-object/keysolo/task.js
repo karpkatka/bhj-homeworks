@@ -17,6 +17,17 @@ class Game {
   }
 
   registerEvents() {
+    let that = this; 
+    document.addEventListener('keypress', function(event){
+      let userSymb = event.key.toUpperCase();
+      let stringCurrent = that.currentSymbol.textContent.toUpperCase();
+      if (userSymb === stringCurrent) {
+        that.success();
+      } else {
+        that.fail();
+      }
+      event.preventDefault();
+    }) 
     /*
       TODO:
       Написать обработчик события, который откликается
